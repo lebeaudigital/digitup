@@ -33,11 +33,10 @@ if (isset($_GET['code'])) {
 
     if (!$user) {
         // Si l'utilisateur n'existe pas, l'insérer dans la base de données
-        $stmt = $PDO->prepare('INSERT INTO users (nom, prenom, mail, from_site, role_id, active, token, provider) VALUES (:nom, :prenom, :email, :from_site, :role_id, :active, :token, :provider)');
+        $stmt = $PDO->prepare('INSERT INTO users (nom, prenom, mail, role_id, active, token, provider) VALUES (:nom, :prenom, :email, :role_id, :active, :token, :provider)');
         $stmt->bindParam(':nom', $nom, PDO::PARAM_STR);
         $stmt->bindParam(':prenom', $prenom, PDO::PARAM_STR);
         $stmt->bindParam(':email', $email, PDO::PARAM_STR);
-        $stmt->bindParam(':from_site', $website, PDO::PARAM_STR);
         $stmt->bindParam(':role_id', $roleID, PDO::PARAM_INT);
         $stmt->bindParam(':active', $active, PDO::PARAM_INT);
         $stmt->bindParam(':token', $token, PDO::PARAM_STR);

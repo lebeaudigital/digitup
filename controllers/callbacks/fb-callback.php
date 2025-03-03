@@ -50,12 +50,11 @@ if (isset($_GET['code'])) {
 
             if (!$user) {
                 // Insérer un nouvel utilisateur dans la base de données
-                $stmt = $pdo->prepare('INSERT INTO users (nom, prenom, mail, from_site, role_id, active, token, entreprise_id, provider) VALUES (:nom, :prenom, :email, :from_site, :role_id, :active, :token, :entreprise_id, :provider)');
+                $stmt = $pdo->prepare('INSERT INTO users (nom, prenom, mail, role_id, active, token, entreprise_id, provider) VALUES (:nom, :prenom, :email, :role_id, :active, :token, :entreprise_id, :provider)');
                 $stmt->execute([
                     'nom' => $nom,
                     'prenom' => $prenom,
                     'email' => $email,
-                    'from_site' => $website,
                     'role_id' => 3, // Role par défaut, peut être adapté selon tes besoins (3 = member)
                     'active' => 1, // Activer l'utilisateur par défaut
                     'token' => $token,

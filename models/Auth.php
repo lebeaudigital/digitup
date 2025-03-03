@@ -15,7 +15,6 @@ class Auth {
         $sql = 
         "SELECT
             users.id AS user_id, 
-            users.from_site,
             users.provider,
             users.prenom, 
             users.nom, 
@@ -34,14 +33,11 @@ class Auth {
         ON 
             users.role_id = roles.id 
         WHERE 
-            mail = :mail 
-        AND 
-            from_site = :from_site
+            mail = :mail
         ";
         
         $req = $PDO->prepare($sql);
         $req->bindParam(':mail', $d['mail'], PDO::PARAM_STR);
-        $req->bindParam(':from_site', $d['from_site'], PDO::PARAM_STR);
         $req->execute();
         $user = $req->fetch(PDO::FETCH_OBJ);
         
