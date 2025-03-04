@@ -21,6 +21,8 @@ function removeAccents($str, $encoding='utf-8')
     $str = str_replace("!",'', $str);
     $str = str_replace(".",'', $str);
     $str = str_replace(":",'', $str);
+    $str = str_replace(" ",'-', $str);
+    $str = str_replace("_",'-', $str);
     $str = strtolower($str);
  
     return $str;

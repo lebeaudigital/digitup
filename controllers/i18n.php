@@ -12,6 +12,22 @@ if($langue == "fr"){
 }
 
 $countries = [
-    0 => ['countryFR' => 'France', 'local' => 'Français', 'lang' => 'French','codeCountry' => 'fr', 'codeLang' => 'fr', 'flag' => 'fr', 'browser' => 'fr'], 
-    1 => ['countryFR' => 'English', 'local' => 'English', 'lang' => 'English','codeCountry' => 'gb', 'codeLang' => 'en', 'flag' => 'gb', 'browser' => 'en']
+    0 => [
+        'countryFR' => 'France',
+        'local' => 'Français', 
+        'lang' => 'French',
+        'codeCountry' => 'fr',
+        'codeLang' => 'fr',
+        'flag' => 'fr',
+        'browser' => 'fr',
+    ], 
+    1 => [
+        'countryFR' => 'English',
+        'local' => 'English',
+        'lang' => 'English',
+        'codeCountry' => 'gb',
+        'codeLang' => 'en',
+        'flag' => 'gb',
+        'browser' => 'en',
+    ]
 ];
