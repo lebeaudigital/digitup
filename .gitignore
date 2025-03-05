@@ -1,5 +1,0 @@
-.gitignore
-node_modules
-vendor
-app/elearning
-app/AJAX/log.txt
