@@ -27,8 +27,28 @@ if (isset($_GET['code'])) {
     $provider = "Google";
 
     // Vérifie si l'utilisateur existe
-    $stmt = $PDO->prepare('SELECT * FROM users WHERE mail = :email');
-    $stmt->execute(['email' => $email]);
+    $stmt = $PDO->prepare('SELECT
+            users.id AS user_id, 
+            users.provider,
+            users.prenom, 
+            users.nom, 
+            users.mail, 
+            users.password, 
+            users.token,
+            users.active,
+            roles.id AS role_id,
+            roles.name,
+            roles.slug,
+            roles.level
+        FROM 
+            users 
+        LEFT JOIN 
+            roles 
+        ON 
+            users.role_id = roles.id 
+        WHERE 
+            mail = :mail');
+    $stmt->execute(['mail' => $email]);
     $user = $stmt->fetch();
 
     if (!$user) {
@@ -55,7 +75,7 @@ if (isset($_GET['code'])) {
         $_SESSION['Auth'] = $user;
 
         // Redirige vers l'application
-        header('Location:' . $path);
+        header('Location:' . $path.'index.php');
         exit;
     } else {
         // Message pour compte inactif
