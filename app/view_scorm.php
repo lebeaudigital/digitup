@@ -4,7 +4,7 @@ require_once __DIR__.'/../views/config/sessionAuth.php';
 $module = isset($_GET['module']) ? basename($_GET['module']) : '';
 
 // 🔍 Vérifier si le module existe en base
-$stmt = $PDO->prepare("SELECT id FROM scorm_modules WHERE module_name = :module_name");
+$stmt = $PDO->prepare("SELECT * FROM scorm_modules WHERE module_name = :module_name");
 $stmt->execute(['module_name' => $module]);
 $scorm = $stmt->fetch();
 
@@ -34,17 +34,16 @@ if (!$module || !is_dir($modulePath)) {
 
     <div id="getIDs" data-user_id="<?= $Auth->user('user_id') ?>" data-scorm_id="<?= $scorm_id ?>"></div>
 
-    <h1 class="text-center mt-4"><?= htmlspecialchars($module) ?></h1>
-    <div class="container mt-4">
-        <h4>Progression du SCORM</h4>
-        <div class="progress" style="height: 30px;">
-            <div id="scormProgressBar" class="progress-bar progress-bar-striped progress-bar-animated bg-success" 
-                role="progressbar" style="width: 10%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
-                0%
+    <h1 class="text-center mt-4"><?= htmlspecialchars($scorm->module_title) ?></h1>
+    
+    <div class="container">
+        <iframe src="<?= $moduleIndex ?>" width="100%" style="aspect-ratio:16/9" class="rounded shadow"></iframe>
+        <div class="progress" style="height: 10px;">
+            <div id="scormProgressBar" class="bg-primary" 
+                role="progressbar" style="width: 10%;">
             </div>
         </div>
     </div>
-    <iframe src="<?= $moduleIndex ?>" width="100%" height="800px"></iframe>
 
 <?php require __DIR__.'/../views/blocs/footer.php' ?>
 <?php require __DIR__.'/../views/blocs/end.php' ?>

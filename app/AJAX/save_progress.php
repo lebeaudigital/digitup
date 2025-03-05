@@ -5,7 +5,7 @@ require_once __DIR__.'/../../views/config/sessionAuth.php';
 $data = json_decode(file_get_contents("php://input"), true);
 
 // Debugging : Vérifier les données reçues
-// file_put_contents("log.txt", print_r($data, true), FILE_APPEND);
+file_put_contents("log.txt", print_r($data, true), FILE_APPEND);
 
 $user_id = $data['user_id'] ?? 0;
 $scorm_id = $data['scorm_id'] ?? '';  // Correction ici
