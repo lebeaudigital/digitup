@@ -1,2 +1,62 @@
+@import "resetbs";
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import "reseter";
 @import "modules/login";
+@import "modules/nav";
+@import "modules/hero";
+
+body{
+    background: $light;
+    font-family: "Inter", sans-serif;
+    text-wrap: balance;
+}
+
+body::-webkit-scrollbar, #sidebar::-webkit-scrollbar {
+    display: none;
+}
+
+@-moz-document url-prefix() {
+    body, #sidebar {
+        scrollbar-width: none; /* Masque la scrollbar dans Firefox */
+    }
+}
+
+h1,h2,h3{
+    font-family: "Space Grotesk", sans-serif;
+}
+
+
+.accordion-item {
+    border: none;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.accordion-button {
+    padding: 20px 0;
+    font-weight: 600;
+    color: #333;
+    background-color: transparent;
+}
+
+.accordion-button:not(.collapsed) {
+    color: #333;
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.accordion-button:focus {
+    box-shadow: none;
+    border-color: transparent;
+}
+
+.accordion-button::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23333'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+.accordion-header {
+    padding: 0 20px;
+}
+.accordion-body {
+    padding: 0 20px 20px;
+}

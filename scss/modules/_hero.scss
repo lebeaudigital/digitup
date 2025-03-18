@@ -1,0 +1,156 @@
+#home{
+    display: flex;
+    align-content: center;
+    position: relative;
+    top: 0;
+    width: 100%;
+    min-height: 100vh;
+    background-color: $light;
+    color:$black;
+    overflow: hidden;
+
+
+    .under_hero {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100vh;
+        z-index: 0;
+        overflow: hidden;
+
+        svg {
+            position: relative;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100%;
+            scale: 1.1;
+            
+            .cls-1 {
+                stroke:lighten($light-yellow,5%);
+                stroke-width: 60px; /* Épaisseur du trait */
+            }
+        }
+    }
+    
+
+    .front_hero{
+        position: relative;
+        top: 0px;
+        width: 100vw;
+        height: 70vh;
+        z-index: 1;
+
+        div.heroTitles{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+            height: 100%;
+            width: 100%;
+
+
+            h1{
+                font-size: 90px;
+            }
+            p{
+                font-size: 2em;
+            }
+        }
+
+
+        .animated-boxes {
+            position: absolute;
+            bottom: -150px;
+            width: 100%;
+            
+            .box {
+                width: 200px;
+                height: 200px;
+                position: relative;
+                border-radius: 35px;
+                overflow: hidden;
+
+                p{
+                    font-size: .8rem;
+                    line-height: normal;
+                }
+
+                .stars {
+                    display: flex;
+                    gap: 3px;
+                    justify-content: center;
+                    align-items: center;
+                }
+        
+                .star {
+                    width: 16px;
+                    height: 16px;
+                    background-color: lighten($secondary, 30%);
+                    clip-path: polygon(
+                        50% 0%, 61% 35%, 98% 35%, 
+                        68% 57%, 79% 91%, 50% 70%, 
+                        21% 91%, 32% 57%, 2% 35%, 
+                        39% 35%
+                    );
+                }
+            }
+            // Définition des positions finales des éléments
+            .box:nth-child(1) { top: -50px; left: -170px;}
+            .box:nth-child(2) { top: 50px; left: -50px;}
+            .box:nth-child(3) { top: 50px; left: 70px;}
+            .box:nth-child(4) { top: -50px; left: 170px;}
+        }
+        
+        
+    }
+    
+}
+
+@media screen and (max-width:450px) {
+    #home{
+        min-height: 80vh !important;
+        text-wrap: balance;
+        .under_hero {
+            svg{
+                height: 50% !important;
+                scale: 3 !important;
+                position: relative;
+                top: 170px !important;
+                left: 230px !important;
+            }
+        }
+        .front_hero{
+            padding: 0 24px;
+            height: 75vh !important;
+            h1{
+                font-size: 50px !important;
+                margin: 35px 0;
+            }
+            p{
+                font-size: 1.5em !important;
+                margin-bottom: 100px;
+            }
+        }
+    }
+}
+@media screen and (max-width:900px) {
+    .under_hero {
+        svg{
+            height: 50% !important;
+            scale: 3 !important;
+            position: relative;
+            top: 170px !important;
+            left: 230px !important;
+        }
+    }
+    .front_hero{
+        h1{
+            font-size: 50px !important;
+        }
+        p{
+            font-size: 2em;
+        }
+    }
+}

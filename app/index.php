@@ -100,6 +100,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['scorm_file'])) {
     ?>
 </ul>
 
+<div class="mt-5">
+    <a href="#" class="btn btn-success">créer un parcours de formation</a>
+</div>
+
 </main>
 
 <?php require __DIR__.'/../views/blocs/footer.php'; ?>
